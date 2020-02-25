@@ -1,18 +1,477 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+<html> 
+        <head>
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>Sajarin Dider</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <style>
+      #header {
+          margin-top: 1em;
+          text-align: center;
+          font-family: 'Merriweather', serif;
+          font-weight: 100;
+      }
+      
+      #accounts {
+          text-align: center;
+          margin-bottom: 1em;
+      }
+      
+      body {
+          color: #484141;
+          font-family: 'Merriweather', serif;
+      }
+      
+      body.hacker {
+          background-color: black;
+          color: #0F0;
+      }
+      body.ocean {
+          background-color: #06F;
+          color: white;
+      }
+      
+      .hacker a {
+          color: #0F0;
+          border-bottom: 1px dotted #0F0;
+      }
+      .ocean a {
+          color: white;
+          border-bottom: 1px dashed white;
+      }
+      
+      .year { opacity: 0.5; }
+      
+      .vsep {
+          width: 400px;
+          height: 1px;
+          background-color: #ADADAD;
+          margin: 0 auto;
+      }
+      
+      .hacker .vsep {
+          background-color: #0F0;
+      }
+      
+      #content {
+          font-family: Consolas, Menlo, monospace;
+          font-size: 1.2em;
+          margin-left: 47%;
+          margin-left: calc(50% - 40px);
+      
+          margin-top: 3em;
+      }
+      
+      #items {
+          width: 500px;
+          margin: 0 auto;
+      }
+      
+      @media (max-width: 550px) {
+          .vsep {
+              width: 50%;
+          }
+          #content {
+              display: table;
+              margin: 0 auto;
+          }
+          #items {
+              width: 80%;
+          }
+      }
+      
+      ul.root {
+          padding-left: 0;
+      }
+      
+      a {
+          text-decoration: none;
+      }
+      #items a {
+          text-decoration: underline;
+      }
+      
+      .item:hover {
+          background-color: #FFD17C;
+      }
+      
+      .angle {
+          position: absolute;
+          width: 17px;
+          height: 9px;
+          display: inline-block;
+          margin-left: -24px;
+          border-left: 1px solid #484141;
+          border-bottom: 1px solid #484141;
+      }
+      
+      .hacker .angle {
+          border-color: #0F0;
+      }
+      .ocean .angle {
+          border-color: white;
+      }
+      
+      ul {
+          position: relative;
+          list-style-type: none;
+      }
+      .treeside {
+          margin-left: -24px;
+          position: absolute;
+          width: 1px;
+          border-left: 1px solid #484141;
+          height: 100%;
+      }
+      .hacker .treeside {
+          border-color: #0F0;
+      }
+      .ocean .treeside {
+          border-color: white;
+      }
+      
+      .obscure {
+          bottom: 0;
+          margin-bottom: 18px;
+          margin-left: 12px;
+          background-color: white;
+          position: absolute;
+          height: 20px;
+          width: 10px;
+      }
+      .hacker .obscure {
+          background-color: black;
+      }
+      .ocean .obscure {
+          background-color: #06F;
+      }
+      
+      .swatch-container {
+          height: 50px;
+          padding: 0 10px;
+          background-color: #eee;
+          bottom: 0;
+          right: 0;
+          margin: 15px;
+          position: fixed;
+      }
+      
+      .swatch {
+          margin-right: 5px;
+          display: inline-block;
+          margin-top: 10px;
+          width: 30px;
+          height: 30px;
+          border: 1px solid #9C9C9C;
+      }
+      
+      .swatch-last {
+          margin: 0;
+      }
+      
+      .swatch-left {
+          border-style: solid;
+          border-color: transparent;
+          border-width: 30px 30px 0 0;
+      }
+      .swatch-right {
+          border-style: solid;
+          border-color: transparent;
+          border-width: 0 0 30px 30px;
+          margin-top: -30px;
+      }
+      
+      pre {
+        font-family: Consolas, Menlo, monospace;
+        padding: 5px;
+        background-color: #f5f5f5;
+        border-radius: 5px;
+      }
+      .ocean pre {
+        background-color: #277EFF;
+      }
+      .hacker pre {
+        background-color: transparent;
+      }
+      .normal .c-kw { color: purple; }
+      .normal .c-nl { color: blue; }
+      .normal .c-sl { color: green; }
+      
+      .img-item {
+        display: block;
+        max-width: 75%;
+        margin: 0 auto;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.36);
+      }
+      
+      .caption {
+        text-align: center;
+        font-size: 0.8em;
+        margin-top: 5px;
+      }
+      
+      .icon-external-link {
+        display: inline-block;
+        width: 0.9em;
+        height: 0.9em;
+        vertical-align: middle;
+      }
+    </style>
   </head>
-  <body>
-    <div id="content">
-      <h1>My Portfolio</h1>
-      <p>This is my portfolio.</p>
-      <p>Click here to get a random message:</p>
-      <button onclick="addRandomGreeting()">Hello</button>
-      <div id="greeting-container"></div>
+    <h1 id="header">Sajarin Dider</h1>
+    <div id="accounts">
+      <a href="https://github.com/sajarindider" title="(GitHub)">Code</a>
+      â€¢
+      <a href="mailto:sajarindider@gmail.com" title="(E-mail)">Contact</a>
     </div>
-  </body>
-</html>
+    <div class="vsep"></div>
+    <div id="content">
+      <ul class="root">
+<li style="position: relative">
+<a href="javascript:foldNode(&#39;r&#39;)" id="node-r">
+Person/
+</a>
+<ul id="r">
+<li style="position: relative">
+<div class="treeside"></div>
+<div class="angle"></div>
+<a href="javascript:foldNode(&#39;p&#39;)" id="node-p">
+Programmer/
+</a>
+<ul id="p" style="display: none">
+<li style="position: relative">
+<div class="treeside"></div>
+<div class="angle"></div>
+<a href="javascript:foldNode(&#39;prj&#39;)" id="node-prj">
+Projects/
+</a>
+<ul id="prj" style="display: none">
+<li style="position: relative">
+<div class="treeside"></div>
+<div class="angle"></div>
+<a href="javascript:item(&#39;lm&#39;)" id="node-lm">
+Origamium
+</a>
+</li>
+<li style="position: relative">
+<div class="treeside"></div>
+<div class="angle"></div>
+<a href="javascript:item(&#39;fl&#39;)" id="node-fl">
+Gilgamesh
+</a>
+</li>
+<li style="position: relative">
+<div class="treeside"></div>
+<div class="angle"></div>
+<a href="javascript:item(&#39;l2s&#39;)" id="node-l2s">
+Mr.Ross
+</a>
+</li>
+<li style="position: relative">
+<div class="angle"></div>
+<a href="javascript:item(&#39;ml&#39;)" id="node-ml">
+</a>
+</li>
+</ul>
+</li>
+<li style="position: relative">
+<div class="treeside"></div>
+<div class="angle"></div>
+<a href="javascript:foldNode(&#39;xp&#39;)" id="node-xp">
+Experience/
+</a>
+<ul id="xp" style="display: none">
+<li style="position: relative">
+<div class="treeside"></div>
+<div class="angle"></div>
+<a href="javascript:item(&#39;blp&#39;)" id="node-blp">
+Geopipe
+</a>
+</li>
+<li style="position: relative">
+<div class="treeside"></div>
+<div class="angle"></div>
+<a href="javascript:item(&#39;mpx&#39;)" id="node-mpx">
+Nielsen 
+</a>
+</li>
+<li style="position: relative">
+<div class="treeside"></div>
+<div class="angle"></div>
+<a href="javascript:item(&#39;frc&#39;)" id="node-frc">
+CS 136 TA
+</a>
+</li>
+<li style="position: relative">
+<div class="angle"></div>
+<a href="javascript:item(&#39;bwsi&#39;)" id="node-bwsi">
+MIT LLRISE
+</a>
+</li>
+</ul>
+</li>
+<li style="position: relative">
+<div class="angle"></div>
+<a href="javascript:foldNode(&#39;aw&#39;)" id="node-aw">
+Awards/
+</a>
+<ul id="aw" style="display: none">
+<li style="position: relative">
+<div class="treeside"></div>
+<div class="angle"></div>
+<a href="javascript:item(&#39;apcs&#39;)" id="node-apcs">
+1st Place @ HackFrost
+</a>
+</li>
+<li style="position: relative">
+<div class="treeside"></div>
+<div class="angle"></div>
+<a href="javascript:item(&#39;pxii&#39;)" id="node-pxii">
+2nd Place "We the People" Essay Contest
+</a>
+</li>
+<li style="position: relative">
+<div class="angle"></div>
+<a href="javascript:item(&#39;stj&#39;)" id="node-stj">
+3rd Place NFTE Startup Tech Summer 
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li style="position: relative">
+<div class="angle"></div>
+<a href="javascript:item(&#39;s&#39;)" id="node-s">
+Student
+</a>
+</li>
+</ul>
+</li>
+      </ul>
+    </div>
+    <div id="items">
+      <item id="item-lm" style="display: none">
+        <br>
+        <div class="vsep"></div>
+        <br>
+        <a href="https://www.origamium.com"> Origamium</a> is a freelancing web design firm that I started with a few of my friends. Its aim is to provide high-quality, yet affordable websites to small businesses. 
+      </item>
+      <item id="item-fl" style="display: none">
+        <br>
+        <div class="vsep"></div>
+        <br>
+        Gilgamesh is a PDF summarizer written in Python. Source code: <a href="https://github.com/sajarindider/gilgamesh">on GitHub</a>
+      </item>
+      <item id="item-l2s" style="display: none">
+        <br>
+        <div class="vsep"></div>
+        <br>
+        Mr.Ross is a utility for generating web design leads from the NY Commerce Directory. The script scrapes data from the directory and organizes it into a spreadsheet. After which, the businesses without websites are contacted by a sales team. Source code: <a href="https://github.com/sajarindider/MrRoss">on GitHub</a>
+      </item>
+      <item id="item-blp" style="display: none">
+        <br>
+        <div class="vsep"></div>
+        <br>
+        I'm currently interning at Geopipe, a startup that aims to build rapid, immersive 3d models of real enviroments using machine learning and computer vision. 
+      </item>
+      <item id="item-mpx" style="display: none">
+        <br>
+        <div class="vsep"></div>
+        <br>
+        I'm currently doing a Content Analytics Fellowship at Nielsen. My tasks center around developing novel approaches to understanding and building off Nielsen's media data pipelines. 
+      </item>
+      <item id="item-frc" style="display: none">
+        <br>
+        <div class="vsep"></div>
+        <br>
+        I'm currently a TA for the lab section of CS 136 - Software and Analysis of Design. The class is about developing algorithms in C++ to solve basic problems.
+      </item>
+      <item id="item-bwsi" style="display: none">
+        <br>
+        <div class="vsep"></div>
+        <br>
+        I participated in the 2017 MIT Lincoln Lab Radar Introduction for Student Engineers. We developed our own laptop based radar and lidar systems and conducted rudimentary detection experiments with them.  
+      </item>
+      <item id="item-apcs" style="display: none">
+        <br>
+        <div class="vsep"></div>
+        <br>
+       Managed to snag a first place win at HackFrost, an online hackathon hosted on Devpost. Our team submitted Shoveler - an app that connects people who want to shovel snow for money and people who are willing to pay to have their driveways shoveled.  
+      </item>
+      <item id="item-pxii" style="display: none">
+        <br>
+        <div class="vsep"></div>
+        <br>
+        Won 2nd place in a essay contest centered around how the 1st Amendment of the Constitution is still relevant today. 
+      </item>
+      <item id="item-stj" style="display: none">
+        <br>
+        <div class="vsep"></div>
+        <br>
+        I was the team leader of <i>Dap</i>, a mobile app startup that won 3rd place in NFTE's Startup Tech Summer Pitch challenge.
+      </item>
+      <item id="item-s" style="display: none">
+        <br>
+        <div class="vsep"></div>
+        <br>
+        Current Sophomore at Hunter College
+      </item>
+    </div>
+    <div class="swatch-container">
+      <a href="javascript:theme(&quot;ocean&quot;)">
+        <div class="swatch">
+          <div class="swatch-left" style="border-top-color: white"></div>
+          <div class="swatch-right" style="border-bottom-color: #0000FF"></div>
+        </div>
+      </a>
+      <a href="javascript:theme(&quot;hacker&quot;)">
+        <div class="swatch swatch-last">
+          <div class="swatch-left" style="border-top-color: #0F0"></div>
+          <div class="swatch-right" style="border-bottom-color: black"></div>
+        </div>
+      </a>
+    </div>
+    <script>
+      const BODY_ELEM = document.querySelector("body");
+      function theme(name) {
+          if (BODY_ELEM.getAttribute("class") == name) {
+              BODY_ELEM.setAttribute("class", "normal");
+          } else {
+              BODY_ELEM.setAttribute("class", name);
+          }
+      }
+      
+      function foldNode(id) {
+          var elem = document.getElementById(id);
+          if (elem.getAttribute("style") !== null) {
+              elem.removeAttribute("style");
+          } else {
+              elem.setAttribute("style", "display: none");
+          }
+      }
+      
+      var CURRENT_ITEM = undefined;
+      var CURRENT_SELECTED = undefined;
+      function item(id) {
+        var itemId = "item-" + id;
+        if (CURRENT_ITEM !== undefined) {
+          CURRENT_ITEM.setAttribute("style", "display: none");
+          var old_id = CURRENT_ITEM.getAttribute("id");
+          CURRENT_ITEM = undefined;
+          CURRENT_SELECTED.removeAttribute("style");
+          if (old_id === itemId)
+            return;
+        }
+        
+        CURRENT_ITEM = document.getElementById(itemId);
+        CURRENT_ITEM.removeAttribute("style");
+        var nodeId = "node-" + id;
+        CURRENT_SELECTED = document.getElementById(nodeId);
+        CURRENT_SELECTED.setAttribute("style", "font-weight: 600");
+      }
+    </script>
+  
+
+</body></html>
