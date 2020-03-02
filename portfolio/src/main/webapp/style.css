@@ -1,9 +1,224 @@
-#content {
-  margin-left: auto;
-  margin-right: auto;
-  width: 650px;
+#header {
+  margin-top: 1em;
+  text-align: center;
+  font-family: 'Merriweather', serif;
+  font-weight: 100;
 }
 
-#greeting-container {
-  margin-top: 20px;
+#accounts {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+body {
+  color: #484141;
+  font-family: 'Merriweather', serif;
+}
+
+body.hacker {
+  background-color: black;
+  color: #0F0;
+}
+
+body.ocean {
+  background-color: #06F;
+  color: white;
+}
+
+.hacker a {
+  color: #0F0;
+  border-bottom: 1px dotted #0F0;
+}
+
+.ocean a {
+  color: white;
+  border-bottom: 1px dashed white;
+}
+
+.year { opacity: 0.5; }
+
+.vsep {
+  width: 400px;
+  height: 1px;
+  background-color: #ADADAD;
+  margin: 0 auto;
+}
+
+.hacker .vsep {
+  background-color: #0F0;
+}
+
+#content {
+  font-family: Consolas, Menlo, monospace;
+  font-size: 1.2em;
+  margin-left: 47%;
+  margin-left: calc(50% - 40px);
+
+  margin-top: 3em;
+}
+
+#items {
+  width: 500px;
+  margin: 0 auto;
+}
+
+@media (max-width: 550px) {
+  .vsep {
+      width: 50%;
+  }
+  #content {
+      display: table;
+      margin: 0 auto;
+  }
+  #items {
+      width: 80%;
+  }
+}
+
+ul.root {
+  padding-left: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+#items a {
+  text-decoration: underline;
+}
+
+.item:hover {
+  background-color: #FFD17C;
+}
+
+.angle {
+  position: absolute;
+  width: 17px;
+  height: 9px;
+  display: inline-block;
+  margin-left: -24px;
+  border-left: 1px solid #484141;
+  border-bottom: 1px solid #484141;
+}
+
+.hacker .angle {
+  border-color: #0F0;
+}
+
+.ocean .angle {
+  border-color: white;
+}
+
+ul {
+  position: relative;
+  list-style-type: none;
+}
+
+.treeside {
+  margin-left: -24px;
+  position: absolute;
+  width: 1px;
+  border-left: 1px solid #484141;
+  height: 100%;
+}
+
+.hacker .treeside {
+  border-color: #0F0;
+}
+
+.ocean .treeside {
+  border-color: white;
+}
+
+.obscure {
+  bottom: 0;
+  margin-bottom: 18px;
+  margin-left: 12px;
+  background-color: white;
+  position: absolute;
+  height: 20px;
+  width: 10px;
+}
+
+.hacker .obscure {
+  background-color: black;
+}
+
+.ocean .obscure {
+  background-color: #06F;
+}
+
+.swatch-container {
+  height: 50px;
+  padding: 0 10px;
+  background-color: #eee;
+  bottom: 0;
+  right: 0;
+  margin: 15px;
+  position: fixed;
+}
+
+.swatch {
+  margin-right: 5px;
+  display: inline-block;
+  margin-top: 10px;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #9C9C9C;
+}
+
+.swatch-last {
+  margin: 0;
+}
+
+.swatch-left {
+  border-style: solid;
+  border-color: transparent;
+  border-width: 30px 30px 0 0;
+}
+
+.swatch-right {
+  border-style: solid;
+  border-color: transparent;
+  border-width: 0 0 30px 30px;
+  margin-top: -30px;
+}
+
+pre {
+font-family: Consolas, Menlo, monospace;
+padding: 5px;
+background-color: #f5f5f5;
+border-radius: 5px;
+}
+
+.ocean pre {
+background-color: #277EFF;
+}
+
+.hacker pre {
+background-color: transparent;
+}
+
+.normal .c-kw { color: purple; }
+.normal .c-nl { color: blue; }
+.normal .c-sl { color: green; }
+
+.img-item {
+display: block;
+max-width: 75%;
+margin: 0 auto;
+box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.36);
+}
+
+.caption {
+text-align: center;
+font-size: 0.8em;
+margin-top: 5px;
+}
+
+.icon-external-link {
+display: inline-block;
+width: 0.9em;
+height: 0.9em;
+vertical-align: middle;
 }
