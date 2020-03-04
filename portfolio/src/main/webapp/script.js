@@ -12,9 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/**
- * Adds a random greeting to the page.
- */
+
 const BODY_ELEM = document.querySelector("body");
 function theme(name) {
   if (BODY_ELEM.getAttribute("class") == name) {
@@ -93,7 +91,7 @@ function addQuoteToDom(quote) {
  * whichever syntax makes the most sense to you.
  */
 function getRandomQuoteUsingArrowFunctions() {
-  fetch('/random-quote').then(response => response.text()).then((quote) => {
+  fetch('/data').then(response => response.text()).then((quote) => {
     document.getElementById('quote-container').innerText = quote;
   });
 }
@@ -104,8 +102,26 @@ function getRandomQuoteUsingArrowFunctions() {
  * Promises.
  */
 async function getRandomQuoteUsingAsyncAwait() {
-  const response = await fetch('/random-quote');
+  const response = await fetch('/data');
   const quote = await response.text();
   document.getElementById('quote-container').innerText = quote;
 }
 
+function getServerStats() {
+  fetch('/data').then(response => response.json()).then((books) => {
+
+    const statsListElement = document.getElementById('quote-container');
+    statsListElement.innerHTML = '';
+    statsListElement.appendChild(
+        createListElement('First Book ' + books.get(0)));
+    statsListElement.appendChild(
+        createListElement('Second Book ' + books.get(1)));
+  });
+}
+
+/** Creates an <li> element containing text. */
+function createListElement(text) {
+  const liElement = document.createElement('li');
+  liElement.innerText = text;
+  return liElement;
+}
