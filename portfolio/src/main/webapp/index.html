@@ -15,6 +15,7 @@
     <div class="vsep"></div>
     <div id="content">
       <ul class="root">
+	      <body onload="getComments()">
 <li style="position: relative">
 <a href="javascript:foldNode(&#39;r&#39;)" id="node-r">
 Person/
@@ -223,11 +224,11 @@ Student
     <div>
     <form action="/data" method="POST">
       <p>Comments Section </p>
-      <textarea name="comments">Enter a comment</textarea>
+      <textarea name="comment-input">Enter a comment</textarea>
       <br/><br/>
       <input type="submit" />
     </form>    
-    <div id="history"></div>
+    <ul id="history"></ul>
      <script src="script.js"></script>
     </div>
     </div>

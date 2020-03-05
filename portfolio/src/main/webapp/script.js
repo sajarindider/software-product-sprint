@@ -121,7 +121,7 @@ function getServerStats() {
 function getComments() {
   fetch('/data').then(response => response.json()).then((comments) => {
    
-   const ListElement = document.getEleementById('history'); 
+   const ListElement = document.getElementById('history'); 
    ListElement.innerHTML = ''; 
    for(int i = 0; i < comments.size(); i++){
         ListElement.appendChild(
