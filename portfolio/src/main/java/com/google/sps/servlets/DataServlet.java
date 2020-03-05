@@ -15,18 +15,48 @@
 package com.google.sps.servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import com.google.gson.Gson;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
-
   @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    response.setContentType("text/html;");
-    response.getWriter().println("<h1>Hello world!</h1>");
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        response.setContentType("application/json;");
+        String json = new Gson().toJson(comments); 
+        response.getWriter().println(json);
+    }
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+   // Get the input from the form.  
+        String text = getParameter(request, "comment-input", "");
+        comments.add(text); 
+        response.sendRedirect("/index.html");
+    //boolean upperCase = Boolean.parseBoolean(getParameter(request, "upper-case", "false"));
+    //boolean sort = Boolean.parseBoolean(getParameter(request, "sort", "false"));
+
+    // Respond with the result.
+    // response.setContentType("text/html;");
+    // response.getWriter().println(comments);
+    }
+  /**
+   * @return the request parameter, or the default value if the parameter
+   *         was not specified by the client
+   */
+    private String getParameter(HttpServletRequest request, String name, String defaultValue) {
+        String value = request.getParameter(name);
+        if (value == null) {
+            return defaultValue;
+        }
+        return value;
   }
+    private String convertToJsonUsingGson(ArrayList<String> input) {
+        Gson gson = new Gson();
+        String json = gson.toJson(input);
+        return json;
+    }
+    private  ArrayList<String> comments = new ArrayList<String>();
 }

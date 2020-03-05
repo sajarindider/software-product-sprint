@@ -1,18 +1,236 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+<html> 
+   <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>Sajarin Dider</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
-  <body>
-    <div id="content">
-      <h1>My Portfolio</h1>
-      <p>This is my portfolio.</p>
-      <p>Click here to get a random message:</p>
-      <button onclick="addRandomGreeting()">Hello</button>
-      <div id="greeting-container"></div>
+    <h1 id="header">Sajarin Dider</h1>
+    <div id="accounts">
+      <a href="https://github.com/sajarindider" title="(GitHub)">Code</a>
+      <a href="mailto:sajarindider@gmail.com" title="(E-mail)">Contact</a>
     </div>
-  </body>
+    <div class="vsep"></div>
+    <div id="content">
+      <ul class="root">
+	      <body onload="getComments()">
+<li style="position: relative">
+<a href="javascript:foldNode(&#39;r&#39;)" id="node-r">
+Person/
+</a>
+<ul id="r">
+<li style="position: relative">
+<div class="treeside"></div>
+<div class="angle"></div>
+<a href="javascript:foldNode(&#39;p&#39;)" id="node-p">
+Programmer/
+</a>
+<ul id="p" style="display: none">
+<li style="position: relative">
+<div class="treeside"></div>
+<div class="angle"></div>
+<a href="javascript:foldNode(&#39;prj&#39;)" id="node-prj">
+Projects/
+</a>
+<ul id="prj" style="display: none">
+<li style="position: relative">
+<div class="treeside"></div>
+<div class="angle"></div>
+<a href="javascript:item(&#39;lm&#39;)" id="node-lm">
+Origamium
+</a>
+</li>
+<li style="position: relative">
+<div class="treeside"></div>
+<div class="angle"></div>
+<a href="javascript:item(&#39;fl&#39;)" id="node-fl">
+Gilgamesh
+</a>
+</li>
+<li style="position: relative">
+<div class="treeside"></div>
+<div class="angle"></div>
+<a href="javascript:item(&#39;l2s&#39;)" id="node-l2s">
+Mr.Ross
+</a>
+</li>
+<li style="position: relative">
+<div class="angle"></div>
+<a href="javascript:item(&#39;ml&#39;)" id="node-ml">
+</a>
+</li>
+</ul>
+</li>
+<li style="position: relative">
+<div class="treeside"></div>
+<div class="angle"></div>
+<a href="javascript:foldNode(&#39;xp&#39;)" id="node-xp">
+Experience/
+</a>
+<ul id="xp" style="display: none">
+<li style="position: relative">
+<div class="treeside"></div>
+<div class="angle"></div>
+<a href="javascript:item(&#39;blp&#39;)" id="node-blp">
+Geopipe
+</a>
+</li>
+<li style="position: relative">
+<div class="treeside"></div>
+<div class="angle"></div>
+<a href="javascript:item(&#39;mpx&#39;)" id="node-mpx">
+Nielsen 
+</a>
+</li>
+<li style="position: relative">
+<div class="treeside"></div>
+<div class="angle"></div>
+<a href="javascript:item(&#39;frc&#39;)" id="node-frc">
+CS 136 TA
+</a>
+</li>
+<li style="position: relative">
+<div class="angle"></div>
+<a href="javascript:item(&#39;bwsi&#39;)" id="node-bwsi">
+MIT LLRISE
+</a>
+</li>
+</ul>
+</li>
+<li style="position: relative">
+<div class="angle"></div>
+<a href="javascript:foldNode(&#39;aw&#39;)" id="node-aw">
+Awards/
+</a>
+<ul id="aw" style="display: none">
+<li style="position: relative">
+<div class="treeside"></div>
+<div class="angle"></div>
+<a href="javascript:item(&#39;apcs&#39;)" id="node-apcs">
+1st Place @ HackFrost
+</a>
+</li>
+<li style="position: relative">
+<div class="treeside"></div>
+<div class="angle"></div>
+<a href="javascript:item(&#39;pxii&#39;)" id="node-pxii">
+2nd Place "We the People" Essay Contest
+</a>
+</li>
+<li style="position: relative">
+<div class="angle"></div>
+<a href="javascript:item(&#39;stj&#39;)" id="node-stj">
+3rd Place NFTE Startup Tech Summer 
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li style="position: relative">
+<div class="angle"></div>
+<a href="javascript:item(&#39;s&#39;)" id="node-s">
+Student
+</a>
+</li>
+</ul>
+</li>
+      </ul>
+    </div>
+    <div id="items">
+      <item id="item-lm" style="display: none">
+        <br>
+        <div class="vsep"></div>
+        <br>
+        <a href="https://www.origamium.com"> Origamium</a> is a freelancing web design firm that I started with a few of my friends. Its aim is to provide high-quality, yet affordable websites to small businesses. 
+      </item>
+      <item id="item-fl" style="display: none">
+        <br>
+        <div class="vsep"></div>
+        <br>
+        Gilgamesh is a PDF summarizer written in Python. Source code: <a href="https://github.com/sajarindider/gilgamesh">on GitHub</a>
+      </item>
+      <item id="item-l2s" style="display: none">
+        <br>
+        <div class="vsep"></div>
+        <br>
+        Mr.Ross is a utility for generating web design leads from the NY Commerce Directory. The script scrapes data from the directory and organizes it into a spreadsheet. After which, the businesses without websites are contacted by a sales team. Source code: <a href="https://github.com/sajarindider/MrRoss">on GitHub</a>
+      </item>
+      <item id="item-blp" style="display: none">
+        <br>
+        <div class="vsep"></div>
+        <br>
+        I'm currently interning at Geopipe, a startup that aims to build rapid, immersive 3d models of real enviroments using machine learning and computer vision. 
+      </item>
+      <item id="item-mpx" style="display: none">
+        <br>
+        <div class="vsep"></div>
+        <br>
+        I'm currently doing a Content Analytics Fellowship at Nielsen. My tasks center around developing novel approaches to understanding and building off Nielsen's media data pipelines. 
+      </item>
+      <item id="item-frc" style="display: none">
+        <br>
+        <div class="vsep"></div>
+        <br>
+        I'm currently a TA for the lab section of CS 136 - Software and Analysis of Design. The class is about developing algorithms in C++ to solve basic problems.
+      </item>
+      <item id="item-bwsi" style="display: none">
+        <br>
+        <div class="vsep"></div>
+        <br>
+        I participated in the 2017 MIT Lincoln Lab Radar Introduction for Student Engineers. We developed our own laptop based radar and lidar systems and conducted rudimentary detection experiments with them.  
+      </item>
+      <item id="item-apcs" style="display: none">
+        <br>
+        <div class="vsep"></div>
+        <br>
+       Managed to snag a first place win at HackFrost, an online hackathon hosted on Devpost. Our team submitted Shoveler - an app that connects people who want to shovel snow for money and people who are willing to pay to have their driveways shoveled.  
+      </item>
+      <item id="item-pxii" style="display: none">
+        <br>
+        <div class="vsep"></div>
+        <br>
+        Won 2nd place in a essay contest centered around how the 1st Amendment of the Constitution is still relevant today. 
+      </item>
+      <item id="item-stj" style="display: none">
+        <br>
+        <div class="vsep"></div>
+        <br>
+        I was the team leader of <i>Dap</i>, a mobile app startup that won 3rd place in NFTE's Startup Tech Summer Pitch challenge.
+      </item>
+      <item id="item-s" style="display: none">
+        <br>
+        <div class="vsep"></div>
+        <br>
+        Current Sophomore at Hunter College
+      </item>
+    </div>
+    <div class="swatch-container">
+      <a href="javascript:theme(&quot;ocean&quot;)">
+        <div class="swatch">
+          <div class="swatch-left" style="border-top-color: white"></div>
+          <div class="swatch-right" style="border-bottom-color: #0000FF"></div>
+        </div>
+      </a>
+      <a href="javascript:theme(&quot;hacker&quot;)">
+        <div class="swatch swatch-last">
+          <div class="swatch-left" style="border-top-color: #0F0"></div>
+          <div class="swatch-right" style="border-bottom-color: black"></div>
+        </div>
+      </a>
+    </div>
+    <div>
+    <form action="/data" method="POST">
+      <p>Comments Section </p>
+      <textarea name="comment-input">Enter a comment</textarea>
+      <br/><br/>
+      <input type="submit" />
+    </form>    
+    <ul id="history"></ul>
+     <script src="script.js"></script>
+    </div>
+    </div>
+	</body>
 </html>
