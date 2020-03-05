@@ -118,6 +118,17 @@ function getServerStats() {
         createListElement('Second Book ' + books.get(1)));
   });
 }
+function getComments() {
+  fetch('/data').then(response => response.json()).then((comments) => {
+   
+   const ListElement = document.getEleementById('history'); 
+   ListElement.innerHTML = ''; 
+   for(int i = 0; i < comments.size(); i++){
+        ListElement.appendChild(
+            createListElement(comments.get(i));
+   }
+  }); 
+}
 
 /** Creates an <li> element containing text. */
 function createListElement(text) {

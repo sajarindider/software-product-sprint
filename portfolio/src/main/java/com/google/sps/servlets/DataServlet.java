@@ -26,21 +26,42 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
   @Override
+  /*
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    ArrayList<String> books = new ArrayList<String>();
-    books.add("name:"); 
-    books.add("John"); 
-    books.add("age:"); 
-    books.add("31"); 
-    books.add("city:"); 
-    books.add("New York");
+    ArrayList<String> comments = new ArrayList<String>();
+    
     String json = convertToJsonUsingGson(books); 
     response.setContentType("application/json;");
     response.getWriter().println(json);
   }
-  private String convertToJsonUsingGson(ArrayList<String> input) {
-    Gson gson = new Gson();
-    String json = gson.toJson(input);
-    return json;
+  */
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+   // Get the input from the form.
+        ArrayList<String> comments = new ArrayList<String>();  
+        String text = getParameter(request, "comments", "");
+        comments.add(text); 
+    //boolean upperCase = Boolean.parseBoolean(getParameter(request, "upper-case", "false"));
+    //boolean sort = Boolean.parseBoolean(getParameter(request, "sort", "false"));
+
+    // Respond with the result.
+        response.setContentType("text/html;");
+        response.getWriter().println(comments);
+        response.sendRedirect("/index.html");
+    }
+  /**
+   * @return the request parameter, or the default value if the parameter
+   *         was not specified by the client
+   */
+    private String getParameter(HttpServletRequest request, String name, String defaultValue) {
+        String value = request.getParameter(name);
+        if (value == null) {
+            return defaultValue;
+        }
+        return value;
   }
+    private String convertToJsonUsingGson(ArrayList<String> input) {
+        Gson gson = new Gson();
+        String json = gson.toJson(input);
+        return json;
+    }
 }
